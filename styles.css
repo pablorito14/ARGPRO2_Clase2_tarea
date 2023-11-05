@@ -11,6 +11,7 @@ header{
   background-color: whitesmoke;
   padding: 10px;
   position: fixed;
+  /* position: absolute; */
   width: 100%;
 }
 
@@ -19,7 +20,8 @@ header{
   justify-content: center;
   align-items: center;
   background-color: cornflowerblue;
-  height: 100vh;
+  min-height: 100vh;
+  height: auto;
 }
 
 .contenedor{
@@ -31,7 +33,7 @@ header{
 .contenedor form{
   padding: 0 10px;
   width: 100%;
-  max-width: 450px;
+  max-width: 600px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -40,19 +42,20 @@ header{
 }
 
 form div{
-  display: flex;
-  
+  display: grid;
   width: 100%;
 }
 
 form div:first-child{
-  justify-content: space-between;
-  gap: 10px;
+  grid-template-columns: repeat(3,1fr);
+  column-gap: 10px;
+  
 }
 
 form div:nth-child(2){
-  justify-content: center;
-  gap: 10px;
+  grid-template-columns: repeat(4,1fr);
+  column-gap: 10px;
+  
 }
 
 .resultado{
@@ -75,14 +78,14 @@ input,button{
 }
 
 input{
-  width: calc(100% / 2);
+  width: 100%;
 }
 
 button{
   background-color: whitesmoke;
   color: black;
   transition: .5s ease-in-out;
-  width: calc((100% / 4) );
+  /* width: 100%; */
 }
 
 button:hover{
@@ -101,7 +104,35 @@ footer{
   width: 100%;
   text-align: center;
   position: fixed;
+  /* position: absolute; */
   bottom: 0;
   padding: 5px;
+  
+}
+
+@media screen and (max-width:768px) {
+  .hero{
+    min-height: 90vh;
+  }
+  
+  form div:first-child{
+    grid-template-columns: repeat(1,1fr);
+    row-gap: 10px;
+  }
+
+  form div:nth-child(2){
+    row-gap: 10px;
+    grid-template-columns: repeat(2,1fr);
+  }
+
+  input, button{
+    padding: 1.125rem;
+    font-size: 16px;
+  }
+
+
+
+
+  
   
 }
